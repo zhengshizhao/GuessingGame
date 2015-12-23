@@ -22,8 +22,7 @@ function generateWinningNumber(){
 
 function playersGuessSubmission(){
    
-    count--; 
-    if(count >=0) {
+    if(count >= 1) {
 	playersGuess = +document.getElementById('inputnum').value;
 	document.getElementById('inputnum').value = "";
 	checkGuess();
@@ -87,6 +86,7 @@ function checkGuess(){
 	 }
 
 	if (checkredulication()){
+		count--;
 		guessNumbers.push(playersGuess);
 		
 		if (playersGuess === winningNumber) {
