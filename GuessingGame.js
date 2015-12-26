@@ -124,7 +124,7 @@ function provideHint(){
 	if (guessNumbers.length === changeCount) {
 		hintMessage = "Game Over!\n" + 
 		 "The number was "+ winningNumber + 
-		 "\nYour guess were "+guessNumbers.join(",")+ ".";
+		 ",\nYour guess were "+guessNumbers.join(",")+ ".";
        
 	}
 	else {
@@ -133,6 +133,7 @@ function provideHint(){
         	hintNumber.push(generateWinningNumber());
         }
         hintNumber.push(winningNumber);
+        
 	    hintNumber = shuffleArray(hintNumber);
 	    hintMessage = "One of them is the secret number "+ hintNumber.join(",")+".";
      }
@@ -152,17 +153,15 @@ function playAgain(){
 }
 
 
-/* **** Event Listeners/Handlers ****  */
-/*$(document).ready(function(){
-	$("#inputnum").keydown(function(event){
+/* **** Event Listeners/Handlers$(document).ready(function(){
+	/*$("#inputnum").keydown(function(event){
         event.preventDefault();
 		if (event.which == 13) {
         playersGuessSubmission();
     }
-	});
-	$(".threebuttons").first('button').click(
-		playersGuessSubmission());
-
-	$("#hint button").click(provideHint());
-    $("threebuttons").last('button').click(playAgain());
-});*/
+	});*/
+	$(document).ready(function(){
+		$("#submitnum").click(playersGuessSubmission);
+		$("#hint").click(provideHint);
+    	$("#newgame").click(playAgain);
+});
