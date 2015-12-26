@@ -41,39 +41,18 @@ h1 {
    
 }
 
-#submitnum:hover{
+button:hover{
 	opacity: 0.7;
 }
-#hint:hover{
-	opacity: 0.7;
-}
-#newgame:hover{
-	opacity: 0.7;
-}
-
-#submitnum {
+button {
 	height: 40px;
 	width: 120px;
 	background-color: pink;
-	font-size: 15px;
-
-
-	
+	font-size: 15px;	
 }
-#hint{
-	height: 40px;
-	width: 120px;
-	background-color: pink;
-	font-size: 15px;
-	
 
 }
-#newgame {
-    height: 40px;
-	width: 120px;
-	background-color: pink;
-	font-size: 15px;
-}
+
 .checkleft {
 	color: blue;
 	font-size:20px;
