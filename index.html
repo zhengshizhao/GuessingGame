@@ -14,8 +14,7 @@
           <h1>Guess Lucia's Secret Number </h1>
               
     </div>
-    <script src="jquery-1.11.3.min.js"></script>
-    <script src = "GuessingGame.js" type="text/javascript"> </script>
+    
     <form class="input">
     <div >
     	<input id = "inputnum" type = "text" placeholder = "Guess a number 1-100" /> 
@@ -26,16 +25,20 @@
     </div>
 
     <div class = "threebuttons">
-        <button id ="submitnum" onclick= 'playersGuessSubmission()' type ="button"> Submit your number</button>
-        <button id ="hint" onclick='provideHint()'  type ="button">Hint</button>
-        <button id ="newgame" onclick='playAgain()' type = "button"> New Game </button>
+        
+        <button id ="submitnum" type ="button"> Submit your number</button>
+        
+        <button id ="hint" type ="button">Hint</button>
+        <button id ="newgame" type = "button"> New Game </button>
+        
      </div>
     </form>
 
     <div class= "checkleft">
         <p> You have 5 chances to guess the number</p> 
     </div>
-
+<script src="jquery-1.11.3.min.js"></script>
+<script src = "GuessingGame.js" type="text/javascript"> </script>
     
     
 </body>
