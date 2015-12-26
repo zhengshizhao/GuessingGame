@@ -21,19 +21,19 @@ function generateWinningNumber(){
 // Fetch the Players Guess
 
 function playersGuessSubmission(){
-   
-    if(count >= 1) {
-	playersGuess = +document.getElementById('inputnum').value;
-	document.getElementById('inputnum').value = "";
-	checkGuess();
-	$(".checkleft").text("You have "+count+" chances to guess the number");
-
-    }
-    else {
+    	if(count >= 1) {
+    
+		playersGuess = +document.getElementById('inputnum').value;
+		document.getElementById('inputnum').value = "";
+		checkGuess();
+		$(".checkleft").text("You have "+count+" chances to guess the number");
+    	}
+    	else {
     	$(".checknum").text("Game over. You lost! Play again?");
     	$("#inputnum").css({backgroundColor: 'gray'});
 
-    }
+    	}
+   
 	// add code here	
 }
 
@@ -161,6 +161,13 @@ function playAgain(){
     }
 	});*/
 	$(document).ready(function(){
+		$("#inputnum").keydown(function(event){
+        
+		if (event.which == 13) {
+		event.preventDefault();
+        playersGuessSubmission();
+        }
+        });
 		$("#submitnum").click(playersGuessSubmission);
 		$("#hint").click(provideHint);
     	$("#newgame").click(playAgain);
