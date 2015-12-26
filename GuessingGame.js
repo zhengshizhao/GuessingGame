@@ -1,8 +1,11 @@
 /* **** Global Variables **** */
-// try to elminate these global variables in your project, these are here just to start.
 
 var playersGuess;
 var winningNumber;
+/*Global Variable 'count' to count guess chances. 
+  Global Variable 'changeCount' to set guessing chances given to player.
+ Array 'guessNumbers' to save playersGuess numbers. */  
+ 
 var changeCount = 5;
 var guessNumbers = [];
 var count = changeCount;
@@ -10,16 +13,19 @@ var count = changeCount;
 /* **** Guessing Game Functions **** */
 
 // Generate the Winning Number
-winningNumber = generateWinningNumber();
+// function generateWinningNumber() generate a random number between 1 to 100.  
 
 function generateWinningNumber(){
-	// add code here
+
 	return Math.floor(Math.random()*100) + 1;
 
 }
 
-// Fetch the Players Guess
+winningNumber = generateWinningNumber();
 
+// Fetch the Players Guess
+/*  function playersGuessSubmission() passes players input to Global variable 
+playersGuess, and updates player's guess chances left.  */ 
 function playersGuessSubmission(){
     	if(count >= 1) {
     
@@ -33,8 +39,7 @@ function playersGuessSubmission(){
     	$("#inputnum").css({backgroundColor: 'gray'});
 
     	}
-   
-	// add code here	
+   	
 }
 
 // Determine if the next guess should be a lower or higher number
@@ -48,6 +53,7 @@ function lowerOrHigher(){
 		return "Your guess is lower.\n";
 	}
 }
+
 function guessMessage(){
     var diffNumber = Math.abs(playersGuess-winningNumber);
     var feadbackMessage = "";
@@ -153,22 +159,20 @@ function playAgain(){
 }
 
 
-/* **** Event Listeners/Handlers$(document).ready(function(){
-	/*$("#inputnum").keydown(function(event){
-        event.preventDefault();
-		if (event.which == 13) {
-        playersGuessSubmission();
-    }
-	});*/
+/* **** Event Listeners/Handlers */ 
 	$(document).ready(function(){
+		//pass guessNumber with return key
 		$("#inputnum").keydown(function(event){
         
-		if (event.which == 13) {
-		event.preventDefault();
-        playersGuessSubmission();
-        }
+			if (event.which == 13) {
+				event.preventDefault();
+        		playersGuessSubmission();
+        	}
         });
+        //pass guessNumber with submit button
 		$("#submitnum").click(playersGuessSubmission);
+		//click 'hint' button to run function provideHint.
 		$("#hint").click(provideHint);
+		//click 'newgame' button to run function playAgain.
     	$("#newgame").click(playAgain);
 });
