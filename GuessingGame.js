@@ -27,7 +27,7 @@ winningNumber = generateWinningNumber();
 /*  function playersGuessSubmission() passes players input to Global variable 
 playersGuess, and updates player's guess chances left.  */ 
 function playersGuessSubmission(){
-    	if(count >= 1) {
+    	if(count >= 2) {
     
 		playersGuess = +document.getElementById('inputnum').value;
 		document.getElementById('inputnum').value = "";
