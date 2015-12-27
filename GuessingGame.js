@@ -27,20 +27,14 @@ winningNumber = generateWinningNumber();
 /*  function playersGuessSubmission() passes players input to Global variable 
 playersGuess, and updates player's guess chances left.  */ 
 function playersGuessSubmission(){
-    	if(count >= 2) {
-    
+    if(count >= 1) { 
 		playersGuess = +document.getElementById('inputnum').value;
 		document.getElementById('inputnum').value = "";
 		checkGuess();
 		$(".checkleft").text("You have "+count+" chances to guess the number");
-    	}
-    	else {
-    	$(".checknum").text("Game over. You lost! Play again?");
-    	$("#inputnum").css({backgroundColor: 'gray'});
-
-    	}
    	
-}
+    }
+ }
 
 // Determine if the next guess should be a lower or higher number
 
@@ -100,7 +94,13 @@ function checkGuess(){
 			$("#inputnum").css({backgroundColor: 'red'});
 		}
 		else {
+			if (count === 0) {
+				returnmessage = "Game over. You lost! Play again?";
+    	        $("#inputnum").css({backgroundColor: 'gray'});
+			}
+			else {
             returnmessage = guessMessage();
+            }
 		}
 	}
 	else {
@@ -170,7 +170,11 @@ function playAgain(){
         	}
         });
         //pass guessNumber with submit button
+        
+    
 		$("#submitnum").click(playersGuessSubmission);
+	    
+
 		//click 'hint' button to run function provideHint.
 		$("#hint").click(provideHint);
 		//click 'newgame' button to run function playAgain.
